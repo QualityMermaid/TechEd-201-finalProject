@@ -12,15 +12,21 @@ body{
     color: rgb(232, 232, 232);
 }
 
+nav{
+    background-color: rgb(69, 69, 69);
+
+}
+
+
 h1{
     color: #2E8A99;
     text-align: center;
 }
 
 #heroImage{
-    width: 400px;
-    margin: auto;
-    
+    display: flex;
+    width: 500px;
+    margin: auto;    
 }
 .active{
     color: #89cccf;
