@@ -1,7 +1,25 @@
+/* This will be gloable styles */
+
 *{
     box-sizing: border-box;
 }
 
 .active{
     color: blueviolet;
+}
+
+header ul li a{
+    text-decoration: none;
+}
+
+header ul{
+    list-style-type: none;
+}
+
+footer ul li a{
+    text-decoration: none;
+}
+
+footer ul{
+    list-style-type: none;
 }
