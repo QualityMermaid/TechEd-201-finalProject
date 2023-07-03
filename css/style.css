@@ -1,25 +1,49 @@
 /* This will be gloable styles */
+/* https://colorhunt.co/palette/2c3333395b64a5c9cae7f6f2
+https://colorhunt.co/palette/0e29541f6e8c2e8a9984a7a1 */
 
 *{
     box-sizing: border-box;
 }
 
+body{
+    margin: 1rem;
+    background-color: rgb(41, 41, 41);
+    color: rgb(232, 232, 232);
+}
+
+h1{
+    color: #2E8A99;
+    text-align: center;
+}
+
+#heroImage{
+    width: 400px;
+    margin: auto;
+    
+}
 .active{
-    color: blueviolet;
+    color: #89cccf;
 }
 
 header ul li a{
     text-decoration: none;
+    color: inherit;
 }
 
 header ul{
     list-style-type: none;
+    text-align: center;
 }
 
 footer ul li a{
     text-decoration: none;
+    color: inherit;
+
 }
 
 footer ul{
     list-style-type: none;
+    text-align: center;
+
 }
