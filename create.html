@@ -9,6 +9,7 @@
     <!-- change content later -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/create.css">
 </head>
 <body>
     <header>
@@ -25,20 +26,29 @@
     <main>
         <h2> How to generate story prompts:</h2>
         <p>
-            Paragraph about how to create story promts, best things to put in which slot etc.
+            You can use the form below to add customization options for your story prompts. The story prompt will then select from the list you have given. If you want a certain name/game just add one.
         </p>
+        <p>Make sure to seperate your inputs with a ',' eg. Rachel, Jessica, Jenny, Sarah</p>
+        <p>When asked for a time like Bedtime please add one number between 0-11. eg. 8 for 8pm</p>
+
         <form id="storyForm">
             <legend>Story ideas</legend>
-            <label>
-                <input type="text" name="Main Character Name:">
-            </label>
+            <label>Main Character:<input type="text" name="mainCharacterType" placeholder="person, animal"></label>
+            <label>Main Character Name:<input type="text" name="mainCharacter" placeholder="John, Bill, Katie"></label>
+            <label>Friend:<input type="text" name="friendType" placeholder="person, animal"></label>
+            <label>Friend Name:<input type="text" name="friend" placeholder="Jenny, Fred, Rachel"></label>
+            <label>Main Character Home:<input type="text" name="home" placeholder="house, tree, barn"></label>
+            <label>Game:<input type="text" name="game" placeholder="hide and seek, badminton"></label>
+            <label>Dinner:<input type="text" name="Dinner" placeholder="pizza, pasta"></label>
+            <label>Dessert:<input type="text" name="Dessert" placeholder="jelly, cake, ice cream"></label>
+            <label>Bedtime:<input type="text" name="Bedtime" placeholder="8 for 8pm" ></label>
         </form>
         <section id="imageSelectionSection">
             <h2>Select from these two options where you would like the story to take place.</h2>
             <img />
             <img />
         </section>
-        <button type="submit">Create Story Prompt</button>
+        <button type="submit">Create</button>
     </main>
 
     <footer>
