@@ -33,22 +33,28 @@
 
         <form id="storyForm">
             <legend>Story ideas</legend>
-            <label>Main Character:<input type="text" name="mainCharacterType" placeholder="person, animal"></label>
-            <label>Main Character Name:<input type="text" name="mainCharacter" placeholder="John, Bill, Katie"></label>
-            <label>Friend:<input type="text" name="friendType" placeholder="person, animal"></label>
-            <label>Friend Name:<input type="text" name="friend" placeholder="Jenny, Fred, Rachel"></label>
-            <label>Main Character Home:<input type="text" name="home" placeholder="house, tree, barn"></label>
-            <label>Game:<input type="text" name="game" placeholder="hide and seek, badminton"></label>
-            <label>Dinner:<input type="text" name="Dinner" placeholder="pizza, pasta"></label>
-            <label>Dessert:<input type="text" name="Dessert" placeholder="jelly, cake, ice cream"></label>
-            <label>Bedtime:<input type="text" name="Bedtime" placeholder="8 for 8pm" ></label>
+            <label>Main Character:<input type="text" id="mainType" name="mainCharacterType" placeholder="person, animal"></label>
+            <label>Main Character Name:<input type="text" id="mainName" name="mainCharacter" placeholder="John, Bill, Katie"></label>
+            <!-- <label>Friend:<input type="text" id="friendType" name="friendType" placeholder="person, animal"></label>
+            <label>Friend Name:<input type="text" id="friendName" name="friend" placeholder="Jenny, Fred, Rachel"></label>
+            <label>Main Character Home:<input type="text" id="home" name="home" placeholder="house, tree, barn"></label>
+            <label>Game:<input type="text" id="game" name="game" placeholder="hide and seek, badminton"></label>
+            <label>Dinner:<input type="text" id="dinner" name="Dinner" placeholder="pizza, pasta"></label>
+            <label>Dessert:<input type="text" id="dessert" name="Dessert" placeholder="jelly, cake, ice cream"></label>
+            <label>Bedtime:<input type="number" id="bedtime" name="Bedtime" placeholder="8 for 8pm" min="0" max="11"></label> -->
+            <button class="submit-button" type="submit">Create</button>
+
         </form>
+
         <section id="imageSelectionSection">
             <h2>Select from these two options where you would like the story to take place.</h2>
             <img />
             <img />
         </section>
-        <button type="submit">Create</button>
+
+        <section id="currentStoryInputs">
+        </section>
+
     </main>
 
     <footer>
@@ -60,5 +66,6 @@
     </footer>
     
 <script src="js/app.js"></script>
+<script src="js/create.js"></script>
 </body>
 </html>
