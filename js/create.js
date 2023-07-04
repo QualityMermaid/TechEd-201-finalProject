@@ -7,12 +7,67 @@ console.log("here?")
 // const addNewStoryInputs = document.getElementById("")
 const currentStoryInputs = document.getElementById("currentStoryInputs")
 let savedInput = JSON.parse(localStorage.getItem("currentStoryInputs"))
-console.log(savedInput)
-
-
+console.log("current saved Inputs " + savedInput)
+let savedImage = JSON.parse(localStorage.getItem("currentLocation"))
+console.log("current location is " + savedImage)
 
 let storyInput = []
 console.log("current input " + storyInput)
+
+let  allLocations = []
+
+const image1 = document.getElementById("firstImg")
+const image2 = document.getElementById("secondImg")
+
+function getRandomLocation(){
+    let x = Math.floor(Math.random() * allLocations.length)
+    return x
+}
+
+function Location(name, src){
+    this.name = name;
+    this.src = src;
+    this.selected = 0;
+    allLocations.push(this);
+    console.log(allLocations)
+}
+
+function renderImages(){
+    let location1 = getRandomLocation();
+    let location2 = getRandomLocation();
+
+
+
+    while(location1 === location2){
+        location1 = getRandomLocation();
+    }
+    console.log(`first is ${location1}, second is ${location2}`)
+
+    image1.name = allLocations[location1].name
+    image1.src = allLocations[location1].src
+    console.log(image1)
+
+    image2.src = allLocations[location2].src
+    image2.name = allLocations[location2].name
+    console.log(image2)
+
+    console.log("rendering images")
+}
+
+// renderImages()
+
+// function AllLocations(){
+//     this.allLocations = [];
+//     console.log(this.allLocations + "locations")
+// }
+
+// AllLocations.prototype.gatherLocations = function(){
+//     const locationNames = ["beach", "forest", "garden", "playground"]
+
+//     for(let i = 0; i < locationNames.length; i++){
+//         this.allLocations.push(new Locations(locationNames[i]))
+//     }
+// }
 
 function Story(mainType, mainName,friendType, friendName, home, game, dinner, dessert, bedtime){
     this.mainType = mainType
@@ -111,67 +166,76 @@ storyForm.addEventListener("submit", function(event){
 
 })
 
+function pageLoad(){
+    const beach = new Location("beach", "images/locations/beach.jpeg")
+    const forest = new Location("forest", "images/locations/forest.jpeg")
+    const park = new Location("park", "images/locations/park.jpeg")
 
-if (savedInput){
-    console.log("There is saved data")
-    savedInput.render = function(){
-        
-        const h3StoryInputs = document.createElement("h3");
-        h3StoryInputs.textContent = "Current story ideas"
-        h3StoryInputs.setAttribute("id", "savedInput")
-        currentStoryInputs.appendChild(h3StoryInputs)
+    if (savedInput){
+        console.log("There is saved data")
+        savedInput.render = function(){
+            
+            const h3StoryInputs = document.createElement("h3");
+            h3StoryInputs.textContent = "Current story ideas"
+            h3StoryInputs.setAttribute("id", "savedInput")
+            currentStoryInputs.appendChild(h3StoryInputs)
 
-        const ulStoryInputs = document.createElement("ul");
-        ulStoryInputs.setAttribute("id", "savedInput")
-        currentStoryInputs.appendChild(ulStoryInputs)
+            const ulStoryInputs = document.createElement("ul");
+            ulStoryInputs.setAttribute("id", "savedInput")
+            currentStoryInputs.appendChild(ulStoryInputs)
 
-        const currentMainType = document.createElement("li");
-        currentMainType.setAttribute("id", "savedInput")
-        currentMainType.textContent = "Main Character is a " + this.mainType;
-        ulStoryInputs.appendChild(currentMainType)
+            const currentMainType = document.createElement("li");
+            currentMainType.setAttribute("id", "savedInput")
+            currentMainType.textContent = "Main Character is a " + this.mainType;
+            ulStoryInputs.appendChild(currentMainType)
 
-        const currentMainName = document.createElement("li");
-        currentMainName.setAttribute("id", "savedInput")
-        currentMainName.textContent = "Main Character's name is " + this.mainName;
-        ulStoryInputs.appendChild(currentMainName)
+            const currentMainName = document.createElement("li");
+            currentMainName.setAttribute("id", "savedInput")
+            currentMainName.textContent = "Main Character's name is " + this.mainName;
+            ulStoryInputs.appendChild(currentMainName)
 
-        const friendType = document.createElement("li");
-        friendType.setAttribute("id", "savedInput")
-        friendType.textContent = "Friend is a " + this.friendType;
-        ulStoryInputs.appendChild(friendType)
+            const friendType = document.createElement("li");
+            friendType.setAttribute("id", "savedInput")
+            friendType.textContent = "Friend is a " + this.friendType;
+            ulStoryInputs.appendChild(friendType)
 
-        const friendName = document.createElement("li");
-        friendName.setAttribute("id", "savedInput")
-        friendName.textContent = "Friend's name is " + this.friendName;
-        ulStoryInputs.appendChild(friendName)
+            const friendName = document.createElement("li");
+            friendName.setAttribute("id", "savedInput")
+            friendName.textContent = "Friend's name is " + this.friendName;
+            ulStoryInputs.appendChild(friendName)
 
-        const home = document.createElement("li");
-        home.setAttribute("id", "savedInput")
-        home.textContent = "Main Character lives in a  " + this.home;
-        ulStoryInputs.appendChild(home)
+            const home = document.createElement("li");
+            home.setAttribute("id", "savedInput")
+            home.textContent = "Main Character lives in a  " + this.home;
+            ulStoryInputs.appendChild(home)
 
-        const game = document.createElement("li");
-        game.setAttribute("id", "savedInput")
-        game.textContent = "Games they play are " + this.game;
-        ulStoryInputs.appendChild(game)
+            const game = document.createElement("li");
+            game.setAttribute("id", "savedInput")
+            game.textContent = "Games they play are " + this.game;
+            ulStoryInputs.appendChild(game)
 
-        const dinner = document.createElement("li");
-        dinner.setAttribute("id", "savedInput")
-        dinner.textContent = "Dinner can be " + this.dinner;
-        ulStoryInputs.appendChild(dinner)
+            const dinner = document.createElement("li");
+            dinner.setAttribute("id", "savedInput")
+            dinner.textContent = "Dinner can be " + this.dinner;
+            ulStoryInputs.appendChild(dinner)
 
-        const dessert = document.createElement("li");
-        dessert.setAttribute("id", "savedInput")
-        dessert.textContent = "Dessert can be " + this.dessert;
-        ulStoryInputs.appendChild(dessert)
+            const dessert = document.createElement("li");
+            dessert.setAttribute("id", "savedInput")
+            dessert.textContent = "Dessert can be " + this.dessert;
+            ulStoryInputs.appendChild(dessert)
 
-        const bedtime = document.createElement("li");
-        bedtime.setAttribute("id", "savedInput")
-        bedtime.textContent = "Bedtime is " + this.bedtime + "pm";
-        ulStoryInputs.appendChild(bedtime)
-    }
-    savedInput.render()
-} 
+            const bedtime = document.createElement("li");
+            bedtime.setAttribute("id", "savedInput")
+            bedtime.textContent = "Bedtime is " + this.bedtime + "pm";
+            ulStoryInputs.appendChild(bedtime)
+        }
+        savedInput.render()
+    } 
+
+}
+
+pageLoad()
+renderImages()
 
 function removeSavedInput(){
     console.log("remove running")
