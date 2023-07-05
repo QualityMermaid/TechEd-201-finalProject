@@ -111,10 +111,7 @@ function renderSavedStory(){
     storyParagraph8.setAttribute("id", "storyParagraph")
     storyParagraph8.textContent = `After getting into bed ${localStorageSavedStory.mainName} thought about all the ${localStorageSavedStory.storyDayAbj} things they had done that day with ${localStorageSavedStory.friendName} and hoped that tomorrow would just just as ${localStorageSavedStory.storyDayAbj}`
     storyDetails.appendChild(storyParagraph8)
-    
-    const saveStory = document.createElement("button")
-    saveStory.setAttribute("id", "saveStoryButton")
-    saveStory.setAttribute("onClick", "saveStory()")
-    saveStory.textContent = "Save Story"
-    storyDetails.appendChild(saveStory)
+
+    const savedStory = document.getElementById("savedStoryButton").disabled = true
+
 }

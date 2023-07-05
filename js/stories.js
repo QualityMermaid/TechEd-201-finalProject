@@ -198,6 +198,9 @@ function renderNewStory(){
     saveStory.setAttribute("onClick", "saveStory()")
     saveStory.textContent = "Save Story"
     storyDetails.appendChild(saveStory)
+
+    const renderedStory = document.getElementById("createStoryButton").disabled = true
+
 }
 
 function saveStory(){
