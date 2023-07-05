@@ -9,6 +9,7 @@
     <!-- change content later -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/create.css">
 </head>
 <body>
     <header>
@@ -25,20 +26,35 @@
     <main>
         <h2> How to generate story prompts:</h2>
         <p>
-            Paragraph about how to create story promts, best things to put in which slot etc.
+            You can use the form below to add customization options for your story prompts. The story prompt will then select from the list you have given. If you want a certain name/game just add one.
         </p>
+        <p>Make sure to seperate your inputs with a ',' if you want to provide more than one option. eg, Dinner = pizza, pasta, waffles</p>
+        <p>When asked for a time like Bedtime please add one number between 0-11. eg. 8 for 8pm</p>
+
         <form id="storyForm">
             <legend>Story ideas</legend>
-            <label>
-                <input type="text" name="Main Character Name:">
-            </label>
+            <label>Main Character:<input type="text" id="mainType" name="mainCharacterType" placeholder="person, animal" required></label>
+            <label>Main Character Name:<input type="text" id="mainName" name="mainCharacter" placeholder="John, Bill, Katie" required></label>
+            <label>Friend:<input type="text" id="friendType" name="friendType" placeholder="person, animal" required></label>
+            <label>Friend Name:<input type="text" id="friendName" name="friend" placeholder="Jenny, Fred, Rachel" required></label>
+            <label>Main Character Home:<input type="text" id="home" name="home" placeholder="house, tree, barn"  required></label>
+            <label>Game:<input type="text" id="game" name="game" placeholder="hide and seek, badminton" required></label>
+            <label>Dinner:<input type="text" id="dinner" name="Dinner" placeholder="pizza, pasta" required></label>
+            <label>Dessert:<input type="text" id="dessert" name="Dessert" placeholder="jelly, cake, ice cream" required></label>
+            <label>Bedtime:<input type="number" id="bedtime" name="Bedtime" placeholder="8 for 8pm" min="0" max="11" required></label>
+            <button class="submit-button" type="submit">Create</button>
+
         </form>
+
         <section id="imageSelectionSection">
             <h2>Select from these two options where you would like the story to take place.</h2>
-            <img />
-            <img />
+            <img id="firstImg" />
+            <img id="secondImg"/>
         </section>
-        <button type="submit">Create Story Prompt</button>
+
+        <section id="currentStoryInputs">
+        </section>
+
     </main>
 
     <footer>
@@ -50,5 +66,6 @@
     </footer>
     
 <script src="js/app.js"></script>
+<script src="js/create.js"></script>
 </body>
 </html>

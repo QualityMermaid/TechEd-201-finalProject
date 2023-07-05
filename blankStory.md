@@ -2,7 +2,7 @@ Once there lived a [person/animal] called [mainCharacter]. They lived in a [rand
     
     (Talk more about their home)
 
-One day [mainCharacter] decided they wanted to go to the [location]. Just as they were getting ready the [randomDoorOrPhone]. It was [friend]!
+One day [mainCharacter] decided they wanted to go to the [location]. Just as they were getting ready the [c]. It was [friend]!
     
     (Talk more about their friend. How long they have known each other)
 
