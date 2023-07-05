@@ -10,27 +10,9 @@ let storyDiv = document.getElementById("newStory")
 let storyMainImage = savedLocation
 console.log(storyMainImage + " is the location")
 let  allLocations = []
-let abjectiveDay = savedInput.abjectiveDay
-let doorOrPhone = savedInput.randomDoorOrPhone
-let abjectiveHome = savedInput.abjectiveHome
 
-function getAbjectiveHome(){
-    let x = Math.floor(Math.random() * abjectiveHome.length)
-    console.log(x + " home")
-    return x
-}
 
-function getPhoneOrDoor(){
-    let x = Math.floor(Math.random() * doorOrPhone.length)
-    console.log(x + " phone or door")
-    return x
-}
-
-function getAbjectiveDay(){
-    let x = Math.floor(Math.random() * abjectiveDay.length)
-    console.log(x + " day")
-    return x
-}
+let saveThisStory
 
 function Location(name, src){
     this.name = name;
@@ -101,13 +83,11 @@ function pageLoad(){
     location.setAttribute("id", "savedLocationInput")
     location.textContent = "Location is " + savedLocation;
     ulStoryInputs.appendChild(location)
+
+    
 }
 
 function renderNewStory(){
-
-    let storyDayAbj = savedInput.abjectiveDay[getAbjectiveDay()]
-    let storyHouseAbj = savedInput.abjectiveHome[getAbjectiveHome()]
-    let storyPhoneOrDoor = savedInput.randomDoorOrPhone[getPhoneOrDoor()]
 
     console.log("New Story")
     const storySection = document.createElement("section")
@@ -139,7 +119,7 @@ function renderNewStory(){
 
     const storyParagraph1 = document.createElement("p")
     storyParagraph1.setAttribute("id", "storyParagraph")
-    storyParagraph1.textContent = `Once there lived a ${savedInput.mainType} called ${savedInput.mainName}. They lived in a ${storyHouseAbj} ${savedInput.home}.`
+    storyParagraph1.textContent = `Once there lived a ${savedInput.mainType} called ${savedInput.mainName}. They lived in a ${savedInput.storyHouseAbj} ${savedInput.home}.`
     storyDetails.appendChild(storyParagraph1)
 
 
@@ -151,7 +131,7 @@ function renderNewStory(){
 
     const storyParagraph2 = document.createElement("p")
     storyParagraph2.setAttribute("id", "storyParagraph")
-    storyParagraph2.textContent = `One day ${savedInput.mainName} decided they wanted to go to the ${storyImage.name}. Just as they were getting ready ${storyPhoneOrDoor}. It was their friend the ${savedInput.friendType} called ${savedInput.friendName}!`
+    storyParagraph2.textContent = `One day ${savedInput.mainName} decided they wanted to go to the ${storyImage.name}. Just as they were getting ready ${savedInput.storyPhoneOrDoor}. It was their friend the ${savedInput.friendType} called ${savedInput.friendName}!`
     storyDetails.appendChild(storyParagraph2)
 
 
@@ -187,7 +167,6 @@ function renderNewStory(){
     storyParagraph5.textContent = `They were having such a good time that they didn't realise it was so late! ${savedInput.mainName} asked ${savedInput.friendName} if they wanted to come back to their ${savedInput.home} for dinner.`
     storyDetails.appendChild(storyParagraph5)
 
-
     const storyPrompt5 = document.createElement("p")
     storyPrompt5.setAttribute("id", "storyPrompt")
     storyPrompt5.textContent = `(Describe their journey home)`
@@ -211,9 +190,21 @@ function renderNewStory(){
 
     const storyParagraph8 = document.createElement("p")
     storyParagraph8.setAttribute("id", "storyParagraph")
-    storyParagraph8.textContent = `After getting into bed ${savedInput.mainName} thought about all the ${storyDayAbj} things they had done that day with ${savedInput.friendName} and hoped that tomorrow would just just as ${storyDayAbj}`
+    storyParagraph8.textContent = `After getting into bed ${savedInput.mainName} thought about all the ${savedInput.storyDayAbj} things they had done that day with ${savedInput.friendName} and hoped that tomorrow would just just as ${savedInput.storyDayAbj}`
     storyDetails.appendChild(storyParagraph8)
     
+    const saveStory = document.createElement("button")
+    saveStory.setAttribute("id", "saveStoryButton")
+    saveStory.setAttribute("onClick", "saveStory()")
+    saveStory.textContent = "Save Story"
+    storyDetails.appendChild(saveStory)
+}
+
+function saveStory(){
+    console.log("Saving story")
+    const storySection = savedInput
+    localStorage.setItem("savedStory", JSON.stringify(storySection))
+    console.log(storySection)
 }
 
 pageLoad()

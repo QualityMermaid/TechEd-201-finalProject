@@ -22,6 +22,10 @@ let  allLocations = []
 const image1 = document.getElementById("firstImg")
 const image2 = document.getElementById("secondImg")
 
+const abjectiveHome = ["messy", "clean"]
+const abjectiveDay = ["fun", "exciting"]
+const randomDoorOrPhone = [" there was a knock at the door", "their phone rang"]
+
 function getRandomLocation(){
     let x = Math.floor(Math.random() * allLocations.length)
     return x
@@ -92,9 +96,11 @@ function Story(mainType, mainName,friendType, friendName, home, game, dinner, de
     this.dinner = dinner;
     this.dessert = dessert;
     this.bedtime = bedtime;
-    this.abjectiveHome = ["messy", "clean"]
-    this.abjectiveDay = ["fun", "exciting"]
-    this.randomDoorOrPhone = [" there was a knock at the door", "their phone rang"]
+
+    this.storyDayAbj = abjectiveDay[getAbjectiveDay()]
+    this.storyHouseAbj = abjectiveHome[getAbjectiveHome()]
+    this.storyPhoneOrDoor = randomDoorOrPhone[getPhoneOrDoor()]
+    console.log("Hope this works. " + this.storyDayAbj)
 
     this.render = function(){  
 
@@ -159,6 +165,24 @@ function Story(mainType, mainName,friendType, friendName, home, game, dinner, de
         ulStoryInputs.appendChild(location)
 
     }
+}
+
+function getAbjectiveHome(){
+    let x = Math.floor(Math.random() * abjectiveHome.length)
+    console.log(x + " home")
+    return x
+}
+
+function getPhoneOrDoor(){
+    let x = Math.floor(Math.random() * randomDoorOrPhone.length)
+    console.log(x + " phone or door")
+    return x
+}
+
+function getAbjectiveDay(){
+    let x = Math.floor(Math.random() * abjectiveDay.length)
+    console.log(x + " day")
+    return x
 }
 
 storyForm.addEventListener("submit", function(event){
