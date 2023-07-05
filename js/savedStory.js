@@ -112,6 +112,6 @@ function renderSavedStory(){
     storyParagraph8.textContent = `After getting into bed ${localStorageSavedStory.mainName} thought about all the ${localStorageSavedStory.storyDayAbj} things they had done that day with ${localStorageSavedStory.friendName} and hoped that tomorrow would just just as ${localStorageSavedStory.storyDayAbj}`
     storyDetails.appendChild(storyParagraph8)
 
-    const savedStory = document.getElementById("savedStoryButton").disabled = true
+    document.getElementById("savedStoryButton").disabled = true
 
 }

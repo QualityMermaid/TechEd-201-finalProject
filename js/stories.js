@@ -199,7 +199,7 @@ function renderNewStory(){
     saveStory.textContent = "Save Story"
     storyDetails.appendChild(saveStory)
 
-    const renderedStory = document.getElementById("createStoryButton").disabled = true
+    document.getElementById("createStoryButton").disabled = true
 
 }
 
