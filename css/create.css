@@ -5,7 +5,7 @@
     display: grid;
 }
 
-legend{
+#storyLegend{
     padding-bottom: 1rem;
     color: #89cccf;
 }

@@ -13,6 +13,17 @@
 </head>
 <body>
     <header>
+        <form id="displayMode">
+            <legend>Display</legend>
+            <label class="displayLabel" for="dark">
+                <input type="radio" name="mode" id="darkButton" class="mode" value="dark">
+                <span>Dark</span>
+            </label>
+            <label class="displayLabel"for="light">
+                <input type="radio" name="mode" id="lightButton" class="mode" value="light" checked>
+                <span>Light</span>
+            </label>
+        </form>
         <h1>Story Prompt Generator</h1>
         <nav>
             <ul>
@@ -21,6 +32,7 @@
                 <li class="active"><a href="stories.html">Stories</a></li>
             </ul>
         </nav>
+
     </header>
 
     <main>
@@ -29,7 +41,8 @@
 
         </section>
         
-        <button class="create-button" onclick="renderNewStory()">Create New Story</button>
+        <button class="create-button" id="createStoryButton" onclick="renderNewStory()">Create New Story</button>
+        <button class="saved-button" id="savedStoryButton" onclick="renderSavedStory()">Saved Story</button>
 
         <div id="newStory">
 
@@ -48,5 +61,7 @@
     
 <script src="js/app.js"></script>
 <script src="js/stories.js"></script>
+<script src="js/savedStory.js"></script>
+<script src="js/displayMode.js"></script>
 </body>
 </html>

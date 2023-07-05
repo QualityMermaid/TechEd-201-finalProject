@@ -9,3 +9,8 @@
 #storySummary{
     font-size: 2rem;
 }
+
+#saveStoryButton{
+    display: flex;    margin: auto;
+
+}
