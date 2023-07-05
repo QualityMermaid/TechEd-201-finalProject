@@ -8,11 +8,14 @@ console.log("here?")
 const currentStoryInputs = document.getElementById("currentStoryInputs")
 let savedInput = JSON.parse(localStorage.getItem("currentStoryInputs"))
 console.log("current saved Inputs " + savedInput)
-let savedImage = JSON.parse(localStorage.getItem("currentLocation"))
-console.log("current location is " + savedImage)
+let savedLocation = JSON.parse(localStorage.getItem("currentLocation"))
+console.log("current location is " + savedLocation)
 
 let storyInput = []
 console.log("current input " + storyInput)
+
+let storyLocation 
+console.log(storyLocation + " this is the location selected")
 
 let  allLocations = []
 
@@ -54,20 +57,31 @@ function renderImages(){
     console.log("rendering images")
 }
 
-// renderImages()
+function locationSelected(event){
+    if(event.target === imageSelectionSection){
+        alert("Please select an image for your story location")
+    } else {
+        locationSelected = event.target
+        console.log(locationSelected)
+        localStorage.setItem("currentLocation", JSON.stringify(locationSelected.name))
 
-// function AllLocations(){
-//     this.allLocations = [];
-//     console.log(this.allLocations + "locations")
-// }
+        console.log("a location has been selected")
 
-// AllLocations.prototype.gatherLocations = function(){
-//     const locationNames = ["beach", "forest", "garden", "playground"]
+        if(document.getElementById("savedUlInput")){
+            if(document.getElementById("savedLocationInput")){
+                removeSavedLocation()
+            }
+            const ulStoryInputs = document.getElementById("savedUlInput")
+            const location = document.createElement("li");
+            location.setAttribute("id", "savedLocationInput")
+            location.textContent = "Location is " + locationSelected.name;
+            ulStoryInputs.appendChild(location)
+        }
+    }
 
-//     for(let i = 0; i < locationNames.length; i++){
-//         this.allLocations.push(new Locations(locationNames[i]))
-//     }
-// }
+}
+
+imageSelectionSection.addEventListener("click", locationSelected)
 
 function Story(mainType, mainName,friendType, friendName, home, game, dinner, dessert, bedtime){
     this.mainType = mainType
@@ -91,7 +105,7 @@ function Story(mainType, mainName,friendType, friendName, home, game, dinner, de
         currentStoryInputs.appendChild(h3StoryInputs)
 
         const ulStoryInputs = document.createElement("ul");
-        ulStoryInputs.setAttribute("id", "savedInput")
+        ulStoryInputs.setAttribute("id", "savedUlInput")
         currentStoryInputs.appendChild(ulStoryInputs)
 
         const currentMainType = document.createElement("li");
@@ -138,6 +152,13 @@ function Story(mainType, mainName,friendType, friendName, home, game, dinner, de
         bedtime.setAttribute("id", "savedInput")
         bedtime.textContent = "Bedtime is " + this.bedtime + "pm";
         ulStoryInputs.appendChild(bedtime)
+
+        savedLocation = JSON.parse(localStorage.getItem("currentLocation"))
+        const location = document.createElement("li");
+        location.setAttribute("id", "savedLocationInput")
+        location.textContent = "Location is " + savedLocation;
+        ulStoryInputs.appendChild(location)
+
     }
 }
 
@@ -181,7 +202,7 @@ function pageLoad(){
             currentStoryInputs.appendChild(h3StoryInputs)
 
             const ulStoryInputs = document.createElement("ul");
-            ulStoryInputs.setAttribute("id", "savedInput")
+            ulStoryInputs.setAttribute("id", "savedUlInput")
             currentStoryInputs.appendChild(ulStoryInputs)
 
             const currentMainType = document.createElement("li");
@@ -228,6 +249,15 @@ function pageLoad(){
             bedtime.setAttribute("id", "savedInput")
             bedtime.textContent = "Bedtime is " + this.bedtime + "pm";
             ulStoryInputs.appendChild(bedtime)
+        
+            if(savedLocation){
+                console.log("there is a saved location")
+                const location = document.createElement("li");
+                location.setAttribute("id", "savedLocationInput")
+                location.textContent = "Location is " + savedLocation;
+                ulStoryInputs.appendChild(location)
+    
+            }
         }
         savedInput.render()
     } 
@@ -242,6 +272,13 @@ function removeSavedInput(){
     while(document.getElementById("savedInput")){
         document.getElementById("savedInput").remove()
         console.log("removing savedInput")
+    }
+}
+
+function removeSavedLocation(){
+    if(document.getElementById("savedLocationInput")){
+        document.getElementById("savedLocationInput").remove()
+        console.log("removing savedLocationInput")
     }
 }
 
