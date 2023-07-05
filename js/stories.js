@@ -11,6 +11,10 @@ let storyMainImage = savedLocation
 console.log(storyMainImage + " is the location")
 let  allLocations = []
 
+console.log(savedInput.abjectiveHome,
+    savedInput.abjectiveDay,
+    savedInput.randomDoorOrPhone)
+
 function Location(name, src){
     this.name = name;
     this.src = src;
@@ -90,9 +94,14 @@ function renderNewStory(){
     storyDiv.appendChild(storySection)
     console.log(storySection)
 
-    const storyTitle = document.createElement("h2")
-    storyTitle.textContent = `This is a story about a ${savedInput.mainType} called ${savedInput.mainName}`
-    storySection.appendChild(storyTitle)
+    const storyDetails = document.createElement("details")
+    storyDetails.setAttribute("id", "storyDetails")
+    storySection.appendChild(storyDetails)
+
+    const storySummary = document.createElement("summary")
+    storySummary.setAttribute("id", "storySummary")
+    storySummary.textContent = `This is a story about a ${savedInput.mainType} called ${savedInput.mainName}`
+    storyDetails.appendChild(storySummary)
 
     const storyImg = document.createElement("img")
     let storyImage
@@ -103,9 +112,87 @@ function renderNewStory(){
         }
     }
     storyImg.src = storyImage.src
-    storySection.appendChild(storyImg)
+    storyDetails.appendChild(storyImg)
     
     console.log(storyImage)
+
+    const storyParagraph1 = document.createElement("p")
+    storyParagraph1.setAttribute("id", "storyParagraph")
+    storyParagraph1.textContent = `Once there lived a ${savedInput.mainType} called ${savedInput.mainName}. They lived in a [randomAbjective] ${savedInput.home}.`
+    storyDetails.appendChild(storyParagraph1)
+
+
+    const storyPrompt1 = document.createElement("p")
+    storyPrompt1.setAttribute("id", "storyPrompt")
+    storyPrompt1.textContent = `(Talk more about their home)`
+    storyDetails.appendChild(storyPrompt1)
+
+
+    const storyParagraph2 = document.createElement("p")
+    storyParagraph2.setAttribute("id", "storyParagraph")
+    storyParagraph2.textContent = `One day ${savedInput.mainName} decided they wanted to go to the ${storyImage.name}. Just as they were getting ready the [door/phone]. It was their friend the ${storyImage.friendType} called ${storyImage.friendName}!`
+    storyDetails.appendChild(storyParagraph2)
+
+
+    const storyPrompt2 = document.createElement("p")
+    storyPrompt2.setAttribute("id", "storyPrompt")
+    storyPrompt2.textContent = `(Talk more about their friend. How long they have known each other)`
+    storyDetails.appendChild(storyPrompt2)
+
+    const storyParagraph3 = document.createElement("p")
+    storyParagraph3.setAttribute("id", "storyParagraph")
+    storyParagraph3.textContent = `${savedInput.mainName} asked ${storyImage.friendName} if they wanted to go with them to the ${storyImage.name}.`
+    storyDetails.appendChild(storyParagraph3)
+
+
+    const storyPrompt3 = document.createElement("p")
+    storyPrompt3.setAttribute("id", "storyPrompt")
+    storyPrompt3.textContent = `(Talk about getting ready to go to the ${storyImage.name} eg Beach - sunhats)`
+    storyDetails.appendChild(storyPrompt3)    
+    
+    const storyParagraph4 = document.createElement("p")
+    storyParagraph4.setAttribute("id", "storyParagraph")
+    storyParagraph4.textContent = `When ${savedInput.mainName} and ${storyImage.friendName} got to the ${storyImage.name} they decided to play a game of ${storyImage.game}.`
+    storyDetails.appendChild(storyParagraph4)
+
+
+    const storyPrompt4 = document.createElement("p")
+    storyPrompt4.setAttribute("id", "storyPrompt")
+    storyPrompt4.textContent = `  (Describe them playing ${storyImage.game})`
+    storyDetails.appendChild(storyPrompt4) 
+
+    const storyParagraph5 = document.createElement("p")
+    storyParagraph5.setAttribute("id", "storyParagraph")
+    storyParagraph5.textContent = `They were having such a good time that they didn't realise it was so late! ${savedInput.mainName} asked ${storyImage.friendName} if they wanted to come back to their ${savedInput.home} for dinner.`
+    storyDetails.appendChild(storyParagraph5)
+
+
+    const storyPrompt5 = document.createElement("p")
+    storyPrompt5.setAttribute("id", "storyPrompt")
+    storyPrompt5.textContent = `(Describe their journey home)`
+    storyDetails.appendChild(storyPrompt5) 
+
+    const storyParagraph6 = document.createElement("p")
+    storyParagraph6.setAttribute("id", "storyParagraph")
+    storyParagraph6.textContent = `When they got back to the ${savedInput.home}, ${savedInput.mainName} and ${storyImage.friendName} had ${storyImage.dinner} for dinner followed by ${storyImage.dessert}.`
+    storyDetails.appendChild(storyParagraph6)
+
+    const storyParagraph7 = document.createElement("p")
+    storyParagraph7.setAttribute("id", "storyParagraph")
+    storyParagraph7.textContent = `${savedInput.mainName} said goodbye to their friend ${storyImage.friendName} and got ready for bed as it was ${storyImage.bedtime}pm.`
+    storyDetails.appendChild(storyParagraph7)
+
+
+    const storyPrompt6 = document.createElement("p")
+    storyPrompt6.setAttribute("id", "storyPrompt")
+    storyPrompt6.textContent = `(Describe bedtime routine)`
+    storyDetails.appendChild(storyPrompt6) 
+
+    const storyParagraph8 = document.createElement("p")
+    storyParagraph8.setAttribute("id", "storyParagraph")
+    storyParagraph8.textContent = `After getting into bed ${savedInput.mainName} thought about all the [randomAbjective] things they had done that day with ${storyImage.friendName} and hoped that tomorrow would just just as [sameAbjective]`
+    storyDetails.appendChild(storyParagraph8)
     
 }
+
 pageLoad()
