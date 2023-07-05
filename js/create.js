@@ -30,7 +30,6 @@ function getRandomLocation(){
 function Location(name, src){
     this.name = name;
     this.src = src;
-    this.selected = 0;
     allLocations.push(this);
     console.log(allLocations)
 }
