@@ -94,7 +94,7 @@ function Story(mainType, mainName,friendType, friendName, home, game, dinner, de
     this.bedtime = bedtime;
     this.abjectiveHome = ["messy", "clean"]
     this.abjectiveDay = ["fun", "exciting"]
-    this.randomDoorOrPhone = ["door", "phone"]
+    this.randomDoorOrPhone = [" there was a knock at the door", "their phone rang"]
 
     this.render = function(){  
 
