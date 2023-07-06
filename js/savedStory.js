@@ -23,6 +23,8 @@ createdPhoneOrDoor = [localStorageSavedStory[11]]
 }
 
 function renderSavedStory(){
+    const storyDiv = document.getElementById("storyDiv")
+    storyDiv.classList.add("newStory")
 
     console.log("saved Story")
     const storySection = document.createElement("section")
@@ -36,7 +38,7 @@ function renderSavedStory(){
 
     const storySummary = document.createElement("summary")
     storySummary.setAttribute("id", "storySummary")
-    storySummary.textContent = `This is a story about a ${createdMainType} called ${createdMainName}`
+    storySummary.textContent = `This is a saved story about a ${createdMainType} called ${createdMainName}`
     storyDetails.appendChild(storySummary)
 
     const storyImg = document.createElement("img")

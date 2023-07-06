@@ -144,8 +144,10 @@ function pageLoad(){
 
 function renderNewStory(){
 
-    
     const newStoryRender = new NewStory(savedInput.mainType, savedInput.mainName, savedInput.friendType, savedInput.friendName, savedInput.home, savedInput.game, savedInput.dinner, savedInput.dessert, savedInput.bedtime, savedInput.abjectiveHome,savedInput.abjectiveDay, savedInput.randomDoorOrPhone)
+
+    const storyDiv = document.getElementById("storyDiv")
+    storyDiv.classList.add("newStory")
 
     const storySection = document.createElement("section")
     storySection.setAttribute("id", "storySection")
@@ -157,7 +159,7 @@ function renderNewStory(){
 
     const storySummary = document.createElement("summary")
     storySummary.setAttribute("id", "storySummary")
-    storySummary.textContent = `This is a story about a ${createdMainType} called ${createdMainName}`
+    storySummary.textContent = `This is a new story about a ${createdMainType} called ${createdMainName}`
     storyDetails.appendChild(storySummary)
 
     const storyImg = document.createElement("img")

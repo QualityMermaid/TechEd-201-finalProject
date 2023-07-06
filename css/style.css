@@ -8,6 +8,10 @@ https://colorhunt.co/palette/0e29541f6e8c2e8a9984a7a1 */
     line-height: 1.3;
 }
 
+p{
+    padding: 1rem;
+}
+
 .dark{
     color: white;
     background-color:  rgb(41, 41, 41);
@@ -20,14 +24,25 @@ https://colorhunt.co/palette/0e29541f6e8c2e8a9984a7a1 */
 
 body{
     margin: 1rem;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.391);
     color: black;
 }
 
-nav{
-    background-color: rgb(69, 69, 69);
-    color: white;
+header{
+    padding: 2px;
+}
 
+main{
+    margin: 1rem;
+}
+
+nav{
+    background-color: rgba(113, 113, 113, 0.427);
+    color: inherit;
+    font-size: 1.2rem;
+    margin: 1rem;
+    padding: .5rem;
+    line-height: 2rem;
 }
 
 #displayMode{
@@ -35,7 +50,7 @@ nav{
     right: 1rem;
     padding: .2rem;
     width: min-content;
-    background-color: rgb(74, 74, 74);
+    background-color: rgba(74, 74, 74, 0.528);
     color: white;
     text-align: center;
     border: 1px solid white;
@@ -50,15 +65,27 @@ nav{
 h1{
     color: #2E8A99;
     text-align: center;
+    font-size: 2rem;
+}
+
+h2{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+h3{
+    font-size: 1rem;
 }
 
 #heroImage{
     display: flex;
-    width: 500px;
-    margin: auto;    
+    width: 95%;
+    margin: auto;  
 }
 .active{
-    color: #89cccf;
+    color: #031495;
+    font-size: 1.5rem;
 }
 
 header ul li a{
@@ -106,7 +133,6 @@ footer ul{
     font-weight: bold;
     font-size: 22px;
     line-height: 20px;
-    /* cursor: pointer; */
     transition: 0.3s;
     border: 3px solid #01bf1a;
 }

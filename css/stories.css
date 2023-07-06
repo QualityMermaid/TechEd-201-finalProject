@@ -1,24 +1,37 @@
 #currentStoryInputs{
-    background-color: rgb(155, 155, 155);
-    margin: 1rem;
+    background-color: rgba(155, 155, 155, 0.409);
     padding: 1rem;
+}
+
+h3{
+    font-size: 1.2rem;
+    padding-bottom: .5rem;
+}
+
+#savedUlInput{
+    line-height: 1.5rem;
 }
 
 #buttonArea{
     margin: auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 1rem;
 }
 
-#newStory{
-    background-color: rgba(41, 0, 146, 0.415);
+.button{
+    padding: 1rem;
+    width: 150px;
+}
+
+.newStory{
     margin: auto;
     padding: 5px;
 }
 
 #storySummary{
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin: .25rem;
 
 }
 
@@ -38,6 +51,7 @@ img{
     margin: auto;
     display: flex;
     padding: 2rem;
+    width: 95%;
 }
 
 #saveStoryButton{
@@ -46,5 +60,15 @@ img{
     margin: auto;
     background-color: green;
     color: white;
-    font-size: 1rem;
+    font-size: 1.5rem;
+}
+
+details{
+    background-color: rgba(41, 0, 146, 0.415);
+    margin: .5rem;
+    padding: .5rem;
+}
+
+ul {
+    list-style: none;
 }
