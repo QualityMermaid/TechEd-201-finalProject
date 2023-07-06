@@ -1,6 +1,6 @@
 "use strict"
 
-console.log("Light or Dark Mode")
+console.log("Using Dark Mode or not")
 
 let darkMode = false
 
@@ -14,7 +14,6 @@ function enterDarkMode(){
     body.classList.add("dark")
     button.setAttribute("checked", "checked")
     darkMode = true
-    console.log(darkMode)
     saveMode()
 }
 
@@ -25,7 +24,6 @@ function enterLightMode(){
     body.classList.add("light")
     button.setAttribute("checked", "checked")
     darkMode = false
-    console.log(darkMode)
     saveMode()
 }
 
@@ -37,13 +35,10 @@ function saveMode(){
 function pageLoad(){
     let storedMode = JSON.parse(localStorage.getItem("displayMode"))
     if (storedMode === null){
-        console.log("null")
         return
     } else if (storedMode === false){
-        console.log("light")
         enterLightMode()
     } else if (storedMode === true){
-        console.log("dark")
         enterDarkMode()
     }
 }

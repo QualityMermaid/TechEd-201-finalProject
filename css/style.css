@@ -125,3 +125,8 @@ footer ul{
     cursor: pointer;
     transition: 0.3s;
 }
+
+.disable{
+    background-color: rgb(86, 86, 86);
+    color: gray;
+}

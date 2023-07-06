@@ -2,13 +2,10 @@
 
 console.log("stories js")
 let savedInput = JSON.parse(localStorage.getItem("currentStoryInputs"))
-console.log("current saved Inputs " + savedInput)
 let savedLocation = JSON.parse(localStorage.getItem("currentLocation"))
-console.log("current location is " + savedLocation)
 let storyInputsSection = document.getElementById("currentStoryInputs")
 let storyDiv = document.getElementById("newStory")
 let storyMainImage = savedLocation
-console.log(storyMainImage + " is the location")
 let  allLocations = []
 
 
@@ -33,7 +30,6 @@ function Location(name, src){
     this.name = name;
     this.src = src;
     allLocations.push(this);
-    console.log(allLocations)
 }
 
 function NewStory(mainType, mainName,friendType, friendName, home, game, dinner, dessert, bedtime, abjectiveHome, abjectiveDay, randomDoorOrPhone){
@@ -62,7 +58,6 @@ function NewStory(mainType, mainName,friendType, friendName, home, game, dinner,
     this.bedtime = bedtime.split(",");
     createdBedtime = this.bedtime[ Math.floor(Math.random() * this.bedtime.length)]
 
-    console.log(abjectiveHome + "HERE")
     this.abjectiveHome = abjectiveHome;
     createdAbjectiveHome = this.abjectiveHome[ Math.floor(Math.random() * this.abjectiveHome.length)]
 
@@ -71,42 +66,15 @@ function NewStory(mainType, mainName,friendType, friendName, home, game, dinner,
 
     this.randomDoorOrPhone = randomDoorOrPhone;
     createdPhoneOrDoor = this.randomDoorOrPhone[ Math.floor(Math.random() * this.randomDoorOrPhone.length)]
-
-
-    // this.storyHouseAbj = abjectiveHome[getAbjectiveHome()]
-    // console.log(this.storyHouseAbj + "HERE1")
-    // createdAbjectiveHome.push(this.storyHouseAbj)
-    // this.storyDayAbj = abjectiveDay[getAbjectiveDay()]
-    // createdAbjectiveDay.push(this.storyDayAbj)
-
-    // this.storyPhoneOrDoor = randomDoorOrPhone[getPhoneOrDoor()]
-    // createdPhoneOrDoor.push(this.storyPhoneOrDoor)
-
-    console.log("Hope this works. " + this.storyDayAbj)
-
-
-
-// function getAbjectiveHome(){
-//     let x = Math.floor(Math.random() * abjectiveHome.length)
-//     console.log(x + " home")
-//     return x
-// }
-
-// function getPhoneOrDoor(){
-//     let x = Math.floor(Math.random() * randomDoorOrPhone.length)
-//     console.log(x + " phone or door")
-//     return x
-// }
-
-// function getAbjectiveDay(){
-//     let x = Math.floor(Math.random() * abjectiveDay.length)
-//     console.log(x + " day")
-//     return x
-// }
-
-
 }
+
 function pageLoad(){
+
+    if(!savedInput){
+        document.getElementById("createStoryButton").disabled = true
+        document.getElementById("createStoryButton").classList.add("disable")
+    }else{
+
     const beach = new Location("beach", "images/locations/beach.jpeg")
     const forest = new Location("forest", "images/locations/forest.jpeg")
     const park = new Location("park", "images/locations/park.jpeg")
@@ -114,6 +82,8 @@ function pageLoad(){
     const h3StoryInputs = document.createElement("h3");
     h3StoryInputs.textContent = "Current story ideas"
     h3StoryInputs.setAttribute("id", "savedInput")
+    storyInputsSection.appendChild(h3StoryInputs)
+
     const ulStoryInputs = document.createElement("ul");
     ulStoryInputs.setAttribute("id", "savedUlInput")
     storyInputsSection.appendChild(ulStoryInputs)
@@ -168,7 +138,7 @@ function pageLoad(){
     location.setAttribute("id", "savedLocationInput")
     location.textContent = "Location is " + savedLocation;
     ulStoryInputs.appendChild(location)
-
+    }
     
 }
 
@@ -177,15 +147,9 @@ function renderNewStory(){
     
     const newStoryRender = new NewStory(savedInput.mainType, savedInput.mainName, savedInput.friendType, savedInput.friendName, savedInput.home, savedInput.game, savedInput.dinner, savedInput.dessert, savedInput.bedtime, savedInput.abjectiveHome,savedInput.abjectiveDay, savedInput.randomDoorOrPhone)
 
-    console.log(newStoryRender + " new story")
-
-
-
-    console.log("New Story")
     const storySection = document.createElement("section")
     storySection.setAttribute("id", "storySection")
     storyDiv.appendChild(storySection)
-    console.log(storySection)
 
     const storyDetails = document.createElement("details")
     storyDetails.setAttribute("id", "storyDetails")
@@ -200,15 +164,12 @@ function renderNewStory(){
     let storyImage
     for(let i = 0; i < allLocations.length; i++){
         if(storyMainImage === allLocations[i].name){
-            console.log("they match!")
             storyImage = allLocations[i]
         }
     }
     storyImg.src = storyImage.src
     storyDetails.appendChild(storyImg)
     
-    console.log(storyImage)
-
     const storyParagraph1 = document.createElement("p")
     storyParagraph1.setAttribute("id", "storyParagraph")
     storyParagraph1.textContent = `Once there lived a ${createdMainType} called ${createdMainName}. They lived in a ${createdAbjectiveHome} ${createdHome}.`
@@ -292,14 +253,12 @@ function renderNewStory(){
     storyDetails.appendChild(saveStory)
 
     document.getElementById("createStoryButton").disabled = true
-
+    document.getElementById("createStoryButton").classList.add("disable")
 }
 
 function saveStory(){
-    console.log("Saving story")
-    const storySection = savedInput
+    const storySection = [createdMainType, createdMainName, createdFriendType, createdFriendName, createdHome, createdGame, createdDinner, createdDessert, createdBedtime, createdAbjectiveHome, createdAbjectiveDay, createdPhoneOrDoor]
     localStorage.setItem("savedStory", JSON.stringify(storySection))
-    console.log(storySection)
 }
 
 pageLoad()

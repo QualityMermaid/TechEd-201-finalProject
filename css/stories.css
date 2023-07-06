@@ -1,5 +1,13 @@
 #currentStoryInputs{
-    background-color: rgb(27, 107, 176);
+    background-color: rgb(155, 155, 155);
+    margin: 1rem;
+    padding: 1rem;
+}
+
+#buttonArea{
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
 }
 
 #newStory{
@@ -8,9 +16,4 @@
 
 #storySummary{
     font-size: 2rem;
-}
-
-#saveStoryButton{
-    display: flex;    margin: auto;
-
 }
