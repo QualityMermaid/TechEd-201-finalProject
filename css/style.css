@@ -26,6 +26,7 @@ body{
     margin: 1rem;
     background-color: rgba(255, 255, 255, 0.391);
     color: black;
+    overflow: hidden;
 }
 
 header{
@@ -50,7 +51,7 @@ nav{
     right: 1rem;
     padding: .2rem;
     width: min-content;
-    background-color: rgba(74, 74, 74, 0.528);
+    background-color: rgb(74, 74, 74);
     color: white;
     text-align: center;
     border: 1px solid white;
@@ -80,8 +81,9 @@ h3{
 
 #heroImage{
     display: flex;
-    width: 95%;
+    width: 100%;
     margin: auto;  
+    opacity: .7;
 }
 .active{
     color: #031495;
@@ -155,4 +157,49 @@ footer ul{
 .disable{
     background-color: rgb(86, 86, 86);
     color: gray;
+}
+
+.glowingImage{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(red,rgba(0,0,0,.7));
+    background-blend-mode: multiply;
+    width:fit-content;
+    margin: auto;
+    animation: animateBgColor 5s linear infinite;
+}
+
+@keyframes animateBgColor{
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+.glowingImage::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(red, transparent, transparent);
+    border-radius: 50%;
+}
+
+.glowingImage::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 90%;
+    height: 90%;
+    background: radial-gradient(red, transparent, transparent);
+    border-radius: 50%;
 }
