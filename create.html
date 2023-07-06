@@ -5,14 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Story Generator</title>
-    <meta name="description" content="Main Page for Story Generator">
-    <!-- change content later -->
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Gathering inputs for Story Generator">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/create.css">
 </head>
 <body>
     <header>
+        <form id="displayMode">
+            <legend>Display</legend>
+            <label class="displayLabel" for="dark">
+                <input type="radio" name="mode" id="darkButton" class="mode" value="dark">
+                <span>Dark</span>
+            </label>
+            <label class="displayLabel"for="light">
+                <input type="radio" name="mode" id="lightButton" class="mode" value="light" checked>
+                <span>Light</span>
+            </label>
+        </form>
         <h1>Story Prompt Generator</h1>
         <nav>
             <ul>
@@ -21,6 +31,7 @@
                 <li><a href="stories.html">Stories</a></li>
             </ul>
         </nav>
+
     </header>
 
     <main>
@@ -32,7 +43,7 @@
         <p>When asked for a time like Bedtime please add one number between 0-11. eg. 8 for 8pm</p>
 
         <form id="storyForm">
-            <legend>Story ideas</legend>
+            <legend id="storyLegend">Story ideas</legend>
             <label>Main Character:<input type="text" id="mainType" name="mainCharacterType" placeholder="person, animal" required></label>
             <label>Main Character Name:<input type="text" id="mainName" name="mainCharacter" placeholder="John, Bill, Katie" required></label>
             <label>Friend:<input type="text" id="friendType" name="friendType" placeholder="person, animal" required></label>
@@ -42,22 +53,24 @@
             <label>Dinner:<input type="text" id="dinner" name="Dinner" placeholder="pizza, pasta" required></label>
             <label>Dessert:<input type="text" id="dessert" name="Dessert" placeholder="jelly, cake, ice cream" required></label>
             <label>Bedtime:<input type="number" id="bedtime" name="Bedtime" placeholder="8 for 8pm" min="0" max="11" required></label>
-            <button class="submit-button" type="submit">Create</button>
-
-        </form>
 
         <section id="imageSelectionSection">
             <h2>Select from these two options where you would like the story to take place.</h2>
-            <img id="firstImg" />
-            <img id="secondImg"/>
+            <div id="imageSelectionImages">
+                <img id="firstImg" />
+                <img id="secondImg"/>
+            </div>
         </section>
+        <button class="button" id="submit-button" type="submit">Save Input</button>
 
-        <section id="currentStoryInputs">
-        </section>
-
+        </form>
+        <div>
+            <span id="alertSave" class="saveAlert" onclick="this.parentElement.style.display='none';">Saved Inputs Successful 
+            </span>
+        </div>
     </main>
 
-    <footer>
+    <footer class="why">
         <nav>
             <ul>
                 <li><a href="about.html">About Us</a></li>
@@ -65,7 +78,7 @@
         </nav>
     </footer>
     
-<script src="js/app.js"></script>
 <script src="js/create.js"></script>
+<script src="js/displayMode.js"></script>
 </body>
 </html>

@@ -1,11 +1,76 @@
 #currentStoryInputs{
-    background-color: rgb(27, 107, 176);
+    background-color: rgba(155, 155, 155, 0.409);
+    padding: 1rem;
 }
 
-#newStory{
-    background-color: blueviolet;
+h3{
+    font-size: 1.5rem;
+    padding-bottom: .5rem;
+    text-align: center;
+}
+
+#savedUlInput{
+    line-height: 1.5rem;
+    text-align: center;
+}
+
+#buttonArea{
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.button{
+    padding: 1rem;
+    width: 150px;
+}
+
+.newStory{
+    margin: auto;
+    padding: 5px;
 }
 
 #storySummary{
+    font-size: 1.5rem;
+    margin: .25rem;
+
+}
+
+#storyParagraph{
+    text-align: center;
     font-size: 2rem;
+}
+
+#storyPrompt{
+    text-align: center;
+    color: rgb(209, 0, 0);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+img{
+    margin: auto;
+    display: flex;
+    padding: 2rem;
+    width: 95%;
+}
+
+#saveStoryButton{
+    display: flex;
+    text-align: center;
+    margin: auto;
+    background-color: green;
+    color: white;
+    font-size: 1.5rem;
+}
+
+details{
+    background-color: rgba(41, 0, 146, 0.415);
+    margin: .5rem;
+    padding: .5rem;
+}
+
+ul {
+    list-style: none;
 }

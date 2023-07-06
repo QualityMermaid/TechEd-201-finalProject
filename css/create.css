@@ -1,15 +1,37 @@
 #storyForm{
-    margin: 1rem;
-    background-color: rgb(81, 81, 81);
+    margin: auto;
+    background-color: rgb(100, 100, 100);
     padding: 1rem;
-    display: grid;
+    display: flex;
+    flex-direction: column;
 }
 
-legend{
+#storyLegend{
     padding-bottom: 1rem;
     color: #89cccf;
+    font-size: 2rem;
 }
 
 input{
     margin: 3px;
+    width: auto;
+    min-width: 30%;
+}
+
+
+#imageSelectionImages{
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+    padding-bottom: 2rem;
+}
+
+img{
+    width: 45%;
+    border: 1rem solid transparent;
+
+}
+
+img:hover{
+    border: 1px solid blue;
 }

@@ -6,12 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Story Generator</title>
     <meta name="description" content="Main Page for Story Generator">
-    <!-- change content later -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
+    <header class="header">
+        <form id="displayMode">
+            <legend>Display</legend>
+            <label class="displayLabel" for="dark">
+                <input type="radio" name="mode" id="darkButton" class="mode" value="dark">
+                <span>Dark</span>
+            </label>
+            <label class="displayLabel"for="light">
+                <input type="radio" name="mode" id="lightButton" class="mode" value="light" checked>
+                <span>Light</span>
+            </label>
+        </form>
         <h1>Story Prompt Generator</h1>
         <nav>
             <ul>
@@ -23,7 +33,11 @@
     </header>
 
     <main>
-        <img id="heroImage" src="/images/heroimage.jpeg" alt="image of a book">
+        <section class="glowingImage">
+            <div class="icon">
+                <img id="heroImage" src="/images/heroimage.jpeg" alt="image of a book">
+            </div>
+        </section>
         <h2> Bedtime story prompts made easy</h2>
         <p>This site can help you with thinking up a bedtime story for your little ones with the added freedom of having your own characters! </p>
         <p>The Story Creation page will ask for your input to help create a custom story prompt. Things that can be added here is Main Characters Name, location story will take place</p>
@@ -47,6 +61,6 @@
         </nav>
     </footer>
     
-<script src="js/app.js"></script>
+<script src="js/displayMode.js"></script>
 </body>
 </html>

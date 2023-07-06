@@ -8,30 +8,85 @@ https://colorhunt.co/palette/0e29541f6e8c2e8a9984a7a1 */
     line-height: 1.3;
 }
 
+p{
+    padding: 1rem;
+}
+
+.dark{
+    color: white;
+    background-color:  rgb(41, 41, 41);
+}
+
+.light{
+    color: black;
+    background-color: white;
+}
+
 body{
     margin: 1rem;
-    background-color: rgb(41, 41, 41);
-    color: rgb(232, 232, 232);
+    background-color: rgba(255, 255, 255, 0.391);
+    color: black;
+}
+
+header{
+    padding: 2px;
+}
+
+main{
+    margin: 1rem;
 }
 
 nav{
-    background-color: rgb(69, 69, 69);
-
+    background-color: rgba(113, 113, 113, 0.427);
+    color: inherit;
+    font-size: 1.2rem;
+    margin: 1rem;
+    padding: .5rem;
+    line-height: 2rem;
 }
 
+#displayMode{
+    position: fixed;
+    right: 1rem;
+    padding: .2rem;
+    width: min-content;
+    background-color: rgb(74, 74, 74);
+    color: white;
+    text-align: center;
+    border: 1px solid white;
+}
+
+.displayLabel{
+    display: flex;
+    padding: .2rem;
+    text-align: center;
+}
 
 h1{
     color: #2E8A99;
     text-align: center;
+    font-size: 2rem;
+}
+
+h2{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+h3{
+    font-size: 1rem;
 }
 
 #heroImage{
     display: flex;
-    width: 500px;
-    margin: auto;    
+    width: 100%;
+    margin: auto;  
+    opacity: .7;
 }
 .active{
-    color: #89cccf;
+    color: #031495;
+    font-size: 1.5rem;
 }
 
 header ul li a{
@@ -54,4 +109,96 @@ footer ul{
     list-style-type: none;
     text-align: center;
 
+}
+
+.button{
+    background-color: #090ea2;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -200;
+    margin-top: -100;
+    padding: 20px;
+    background-color: #01bf1a;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 20px;
+    transition: 0.3s;
+    border: 3px solid #01bf1a;
+}
+
+.alert:hover{
+    border: 3px solid rgb(1, 58, 1);
+}
+
+.saveAlert {
+    margin-left: 15px;
+    color: transparent;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.disable{
+    background-color: rgb(86, 86, 86);
+    color: gray;
+}
+
+.glowingImage{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(red,rgba(0,0,0,.7));
+    background-blend-mode: multiply;
+    width:fit-content;
+    margin: auto;
+    animation: animateBgColor 5s linear infinite;
+}
+
+@keyframes animateBgColor{
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+.glowingImage::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(red, transparent, transparent);
+    border-radius: 50%;
+}
+
+.glowingImage::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 90%;
+    height: 90%;
+    background: radial-gradient(red, transparent, transparent);
+    border-radius: 50%;
 }
