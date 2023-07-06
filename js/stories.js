@@ -1,14 +1,11 @@
 "use strict"
 
-console.log("stories js")
 let savedInput = JSON.parse(localStorage.getItem("currentStoryInputs"))
 let savedLocation = JSON.parse(localStorage.getItem("currentLocation"))
 let storyInputsSection = document.getElementById("currentStoryInputs")
 let storyDiv = document.getElementById("newStory")
 let storyMainImage = savedLocation
 let  allLocations = []
-
-
 let createdMainType = []
 let createdMainName =  []
 let createdFriendType =  []
@@ -21,9 +18,6 @@ let createdBedtime =  []
 let createdAbjectiveHome = []
 let createdAbjectiveDay = []
 let createdPhoneOrDoor = []
-
-
-
 let saveThisStory
 
 function Location(name, src){
@@ -138,8 +132,7 @@ function pageLoad(){
     location.setAttribute("id", "savedLocationInput")
     location.textContent = "Location is " + savedLocation;
     ulStoryInputs.appendChild(location)
-    }
-    
+    }  
 }
 
 function renderNewStory(){
@@ -177,18 +170,15 @@ function renderNewStory(){
     storyParagraph1.textContent = `Once there lived a ${createdMainType} called ${createdMainName}. They lived in a ${createdAbjectiveHome} ${createdHome}.`
     storyDetails.appendChild(storyParagraph1)
 
-
     const storyPrompt1 = document.createElement("p")
     storyPrompt1.setAttribute("id", "storyPrompt")
     storyPrompt1.textContent = `(Talk more about their home)`
     storyDetails.appendChild(storyPrompt1)
 
-
     const storyParagraph2 = document.createElement("p")
     storyParagraph2.setAttribute("id", "storyParagraph")
     storyParagraph2.textContent = `One day ${createdMainName} decided they wanted to go to the ${storyImage.name}. Just as they were getting ready ${createdPhoneOrDoor}. It was their friend a ${createdFriendType} called ${createdFriendName}!`
     storyDetails.appendChild(storyParagraph2)
-
 
     const storyPrompt2 = document.createElement("p")
     storyPrompt2.setAttribute("id", "storyPrompt")
@@ -200,7 +190,6 @@ function renderNewStory(){
     storyParagraph3.textContent = `${createdMainName} asked ${createdFriendName} if they wanted to go with them to the ${storyImage.name}.`
     storyDetails.appendChild(storyParagraph3)
 
-
     const storyPrompt3 = document.createElement("p")
     storyPrompt3.setAttribute("id", "storyPrompt")
     storyPrompt3.textContent = `(Talk about getting ready to go to the ${storyImage.name} eg Beach - sunhats)`
@@ -210,7 +199,6 @@ function renderNewStory(){
     storyParagraph4.setAttribute("id", "storyParagraph")
     storyParagraph4.textContent = `When ${createdMainName} and ${createdFriendName} got to the ${storyImage.name} they decided to play a game of ${createdGame}.`
     storyDetails.appendChild(storyParagraph4)
-
 
     const storyPrompt4 = document.createElement("p")
     storyPrompt4.setAttribute("id", "storyPrompt")
@@ -236,7 +224,6 @@ function renderNewStory(){
     storyParagraph7.setAttribute("id", "storyParagraph")
     storyParagraph7.textContent = `${createdMainName} said goodbye to their friend ${createdFriendName} and got ready for bed as it was ${createdBedtime}pm.`
     storyDetails.appendChild(storyParagraph7)
-
 
     const storyPrompt6 = document.createElement("p")
     storyPrompt6.setAttribute("id", "storyPrompt")

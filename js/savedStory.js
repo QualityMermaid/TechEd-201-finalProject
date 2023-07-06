@@ -1,8 +1,6 @@
 "use strict"
-console.log("saved story script")
 
 let localStorageSavedStory = JSON.parse(localStorage.getItem("savedStory"))
-console.log(typeof(localStorageSavedStory) + " Stored Story") 
 
 if (localStorageSavedStory){
 createdMainType = [localStorageSavedStory[0]]
@@ -26,11 +24,9 @@ function renderSavedStory(){
     const storyDiv = document.getElementById("storyDiv")
     storyDiv.classList.add("newStory")
 
-    console.log("saved Story")
     const storySection = document.createElement("section")
     storySection.setAttribute("id", "storySection")
     storyDiv.appendChild(storySection)
-    console.log(storySection)
 
     const storyDetails = document.createElement("details")
     storyDetails.setAttribute("id", "storyDetails")
@@ -45,32 +41,26 @@ function renderSavedStory(){
     let storyImage
     for(let i = 0; i < allLocations.length; i++){
         if(storyMainImage === allLocations[i].name){
-            console.log("they match!")
             storyImage = allLocations[i]
         }
     }
     storyImg.src = storyImage.src
     storyDetails.appendChild(storyImg)
     
-    console.log(storyImage)
-
     const storyParagraph1 = document.createElement("p")
     storyParagraph1.setAttribute("id", "storyParagraph")
     storyParagraph1.textContent = `Once there lived a ${createdMainType} called ${createdMainName}. They lived in a ${createdAbjectiveHome} ${createdHome}.`
     storyDetails.appendChild(storyParagraph1)
-
 
     const storyPrompt1 = document.createElement("p")
     storyPrompt1.setAttribute("id", "storyPrompt")
     storyPrompt1.textContent = `(Talk more about their home)`
     storyDetails.appendChild(storyPrompt1)
 
-
     const storyParagraph2 = document.createElement("p")
     storyParagraph2.setAttribute("id", "storyParagraph")
     storyParagraph2.textContent = `One day ${createdMainName} decided they wanted to go to the ${storyImage.name}. Just as they were getting ready ${createdPhoneOrDoor}. It was their friend a ${createdFriendType} called ${createdFriendName}!`
     storyDetails.appendChild(storyParagraph2)
-
 
     const storyPrompt2 = document.createElement("p")
     storyPrompt2.setAttribute("id", "storyPrompt")
@@ -82,7 +72,6 @@ function renderSavedStory(){
     storyParagraph3.textContent = `${createdMainName} asked ${createdFriendName} if they wanted to go with them to the ${storyImage.name}.`
     storyDetails.appendChild(storyParagraph3)
 
-
     const storyPrompt3 = document.createElement("p")
     storyPrompt3.setAttribute("id", "storyPrompt")
     storyPrompt3.textContent = `(Talk about getting ready to go to the ${storyImage.name} eg Beach - sunhats)`
@@ -92,7 +81,6 @@ function renderSavedStory(){
     storyParagraph4.setAttribute("id", "storyParagraph")
     storyParagraph4.textContent = `When ${createdMainName} and ${createdFriendName} got to the ${storyImage.name} they decided to play a game of ${createdGame}.`
     storyDetails.appendChild(storyParagraph4)
-
 
     const storyPrompt4 = document.createElement("p")
     storyPrompt4.setAttribute("id", "storyPrompt")
@@ -119,7 +107,6 @@ function renderSavedStory(){
     storyParagraph7.textContent = `${createdMainName} said goodbye to their friend ${createdFriendName} and got ready for bed as it was ${createdBedtime}pm.`
     storyDetails.appendChild(storyParagraph7)
 
-
     const storyPrompt6 = document.createElement("p")
     storyPrompt6.setAttribute("id", "storyPrompt")
     storyPrompt6.textContent = `(Describe bedtime routine)`
@@ -132,5 +119,4 @@ function renderSavedStory(){
 
     document.getElementById("savedStoryButton").disabled = true
     document.getElementById("savedStoryButton").classList.add("disable")
-
 }

@@ -1,7 +1,4 @@
 "use strict"
-
-console.log("Using Dark Mode or not")
-
 let darkMode = false
 
 document.getElementById("darkButton").addEventListener("click", enterDarkMode)
