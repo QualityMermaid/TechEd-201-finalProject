@@ -8,8 +8,22 @@
 #storyLegend{
     padding-bottom: 1rem;
     color: #89cccf;
+    font-size: 2rem;
 }
 
 input{
     margin: 3px;
 }
+
+
+#imageSelectionImages{
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+    padding-bottom: 2rem;
+}
+
+img{
+    width: 45%;
+}
+

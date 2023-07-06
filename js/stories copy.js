@@ -12,20 +12,6 @@ console.log(storyMainImage + " is the location")
 let  allLocations = []
 
 
-let createdMainType = []
-let createdMainName =  []
-let createdFriendType =  []
-let createdFriendName =  []
-let createdHome =  []
-let createdGame =  []
-let createdDinner =  []
-let createdDessert =  []
-let createdBedtime =  []
-let createdAbjectiveHome = []
-let createdAbjectiveDay = []
-let createdPhoneOrDoor = []
-
-
 
 let saveThisStory
 
@@ -36,76 +22,6 @@ function Location(name, src){
     console.log(allLocations)
 }
 
-function NewStory(mainType, mainName,friendType, friendName, home, game, dinner, dessert, bedtime, abjectiveHome, abjectiveDay, randomDoorOrPhone){
-    this.mainType = mainType.split(",");
-    createdMainType = this.mainType[ Math.floor(Math.random() * this.mainType.length)]
-    this.mainName = mainName.split(",");
-    createdMainName = this.mainName[ Math.floor(Math.random() * this.mainName.length)]
-    this.friendType = friendType.split(",");
-    createdFriendType = this.friendType[ Math.floor(Math.random() * this.friendType.length)]
-
-    this.friendName = friendName.split(",");
-    createdFriendName = this.friendName[ Math.floor(Math.random() * this.friendName.length)]
-
-    this.home = home.split(",");
-    createdHome = this.home[ Math.floor(Math.random() * this.home.length)]
-
-    this.game = game.split(",");
-    createdGame = this.game[ Math.floor(Math.random() * this.game.length)]
-
-    this.dinner = dinner.split(",");
-    createdDinner = this.dinner[ Math.floor(Math.random() * this.dinner.length)]
-
-    this.dessert = dessert.split(",");
-    createdDessert = this.dessert[ Math.floor(Math.random() * this.dessert.length)]
-
-    this.bedtime = bedtime.split(",");
-    createdBedtime = this.bedtime[ Math.floor(Math.random() * this.bedtime.length)]
-
-    console.log(abjectiveHome + "HERE")
-    this.abjectiveHome = abjectiveHome;
-    createdAbjectiveHome = this.abjectiveHome[ Math.floor(Math.random() * this.abjectiveHome.length)]
-
-    this.abjectiveDay = abjectiveDay;
-    createdAbjectiveDay = this.abjectiveDay[ Math.floor(Math.random() * this.abjectiveDay.length)]
-
-    this.randomDoorOrPhone = randomDoorOrPhone;
-    createdPhoneOrDoor = this.randomDoorOrPhone[ Math.floor(Math.random() * this.randomDoorOrPhone.length)]
-
-
-    // this.storyHouseAbj = abjectiveHome[getAbjectiveHome()]
-    // console.log(this.storyHouseAbj + "HERE1")
-    // createdAbjectiveHome.push(this.storyHouseAbj)
-    // this.storyDayAbj = abjectiveDay[getAbjectiveDay()]
-    // createdAbjectiveDay.push(this.storyDayAbj)
-
-    // this.storyPhoneOrDoor = randomDoorOrPhone[getPhoneOrDoor()]
-    // createdPhoneOrDoor.push(this.storyPhoneOrDoor)
-
-    console.log("Hope this works. " + this.storyDayAbj)
-
-
-
-// function getAbjectiveHome(){
-//     let x = Math.floor(Math.random() * abjectiveHome.length)
-//     console.log(x + " home")
-//     return x
-// }
-
-// function getPhoneOrDoor(){
-//     let x = Math.floor(Math.random() * randomDoorOrPhone.length)
-//     console.log(x + " phone or door")
-//     return x
-// }
-
-// function getAbjectiveDay(){
-//     let x = Math.floor(Math.random() * abjectiveDay.length)
-//     console.log(x + " day")
-//     return x
-// }
-
-
-}
 function pageLoad(){
     const beach = new Location("beach", "images/locations/beach.jpeg")
     const forest = new Location("forest", "images/locations/forest.jpeg")
@@ -125,7 +41,7 @@ function pageLoad(){
 
     const currentMainName = document.createElement("li");
     currentMainName.setAttribute("id", "savedInput")
-    currentMainName.textContent = "Main Character's name is " + createdMainName;
+    currentMainName.textContent = "Main Character's name is " + savedInput.mainName;
     ulStoryInputs.appendChild(currentMainName)
 
     const friendType = document.createElement("li");
@@ -174,13 +90,6 @@ function pageLoad(){
 
 function renderNewStory(){
 
-    
-    const newStoryRender = new NewStory(savedInput.mainType, savedInput.mainName, savedInput.friendType, savedInput.friendName, savedInput.home, savedInput.game, savedInput.dinner, savedInput.dessert, savedInput.bedtime, savedInput.abjectiveHome,savedInput.abjectiveDay, savedInput.randomDoorOrPhone)
-
-    console.log(newStoryRender + " new story")
-
-
-
     console.log("New Story")
     const storySection = document.createElement("section")
     storySection.setAttribute("id", "storySection")
@@ -193,7 +102,7 @@ function renderNewStory(){
 
     const storySummary = document.createElement("summary")
     storySummary.setAttribute("id", "storySummary")
-    storySummary.textContent = `This is a story about a ${createdMainType} called ${createdMainName}`
+    storySummary.textContent = `This is a story about a ${savedInput.mainType} called ${savedInput.mainName}`
     storyDetails.appendChild(storySummary)
 
     const storyImg = document.createElement("img")
@@ -211,7 +120,7 @@ function renderNewStory(){
 
     const storyParagraph1 = document.createElement("p")
     storyParagraph1.setAttribute("id", "storyParagraph")
-    storyParagraph1.textContent = `Once there lived a ${createdMainType} called ${createdMainName}. They lived in a ${createdAbjectiveHome} ${createdHome}.`
+    storyParagraph1.textContent = `Once there lived a ${savedInput.mainType} called ${savedInput.mainName}. They lived in a ${savedInput.storyHouseAbj} ${savedInput.home}.`
     storyDetails.appendChild(storyParagraph1)
 
 
@@ -223,7 +132,7 @@ function renderNewStory(){
 
     const storyParagraph2 = document.createElement("p")
     storyParagraph2.setAttribute("id", "storyParagraph")
-    storyParagraph2.textContent = `One day ${createdMainName} decided they wanted to go to the ${storyImage.name}. Just as they were getting ready ${createdPhoneOrDoor}. It was their friend a ${createdFriendType} called ${createdFriendName}!`
+    storyParagraph2.textContent = `One day ${savedInput.mainName} decided they wanted to go to the ${storyImage.name}. Just as they were getting ready ${savedInput.storyPhoneOrDoor}. It was their friend the ${savedInput.friendType} called ${savedInput.friendName}!`
     storyDetails.appendChild(storyParagraph2)
 
 
@@ -234,7 +143,7 @@ function renderNewStory(){
 
     const storyParagraph3 = document.createElement("p")
     storyParagraph3.setAttribute("id", "storyParagraph")
-    storyParagraph3.textContent = `${createdMainName} asked ${createdFriendName} if they wanted to go with them to the ${storyImage.name}.`
+    storyParagraph3.textContent = `${savedInput.mainName} asked ${savedInput.friendName} if they wanted to go with them to the ${storyImage.name}.`
     storyDetails.appendChild(storyParagraph3)
 
 
@@ -245,18 +154,18 @@ function renderNewStory(){
     
     const storyParagraph4 = document.createElement("p")
     storyParagraph4.setAttribute("id", "storyParagraph")
-    storyParagraph4.textContent = `When ${createdMainName} and ${createdFriendName} got to the ${storyImage.name} they decided to play a game of ${createdGame}.`
+    storyParagraph4.textContent = `When ${savedInput.mainName} and ${savedInput.friendName} got to the ${storyImage.name} they decided to play a game of ${savedInput.game}.`
     storyDetails.appendChild(storyParagraph4)
 
 
     const storyPrompt4 = document.createElement("p")
     storyPrompt4.setAttribute("id", "storyPrompt")
-    storyPrompt4.textContent = `(Describe them playing ${createdGame})`
+    storyPrompt4.textContent = `(Describe them playing ${savedInput.game})`
     storyDetails.appendChild(storyPrompt4) 
 
     const storyParagraph5 = document.createElement("p")
     storyParagraph5.setAttribute("id", "storyParagraph")
-    storyParagraph5.textContent = `They were having such a good time that they didn't realise it was so late! ${createdMainName} asked ${createdFriendName} if they wanted to come back to their ${createdHome} for dinner.`
+    storyParagraph5.textContent = `They were having such a good time that they didn't realise it was so late! ${savedInput.mainName} asked ${savedInput.friendName} if they wanted to come back to their ${savedInput.home} for dinner.`
     storyDetails.appendChild(storyParagraph5)
 
     const storyPrompt5 = document.createElement("p")
@@ -266,12 +175,12 @@ function renderNewStory(){
 
     const storyParagraph6 = document.createElement("p")
     storyParagraph6.setAttribute("id", "storyParagraph")
-    storyParagraph6.textContent = `When they got back to the ${createdHome}, ${createdMainName} and ${createdFriendName} had ${createdDinner} for dinner followed by ${createdDessert} for dessert.`
+    storyParagraph6.textContent = `When they got back to the ${savedInput.home}, ${savedInput.mainName} and ${savedInput.friendName} had ${savedInput.dinner} for dinner followed by ${savedInput.dessert}.`
     storyDetails.appendChild(storyParagraph6)
 
     const storyParagraph7 = document.createElement("p")
     storyParagraph7.setAttribute("id", "storyParagraph")
-    storyParagraph7.textContent = `${createdMainName} said goodbye to their friend ${createdFriendName} and got ready for bed as it was ${createdBedtime}pm.`
+    storyParagraph7.textContent = `${savedInput.mainName} said goodbye to their friend ${savedInput.friendName} and got ready for bed as it was ${savedInput.bedtime}pm.`
     storyDetails.appendChild(storyParagraph7)
 
 
@@ -282,7 +191,7 @@ function renderNewStory(){
 
     const storyParagraph8 = document.createElement("p")
     storyParagraph8.setAttribute("id", "storyParagraph")
-    storyParagraph8.textContent = `After getting into bed ${createdMainName} thought about all the ${createdAbjectiveDay} things they had done that day with ${createdFriendName} and hoped that tomorrow would just just as ${createdAbjectiveDay}`
+    storyParagraph8.textContent = `After getting into bed ${savedInput.mainName} thought about all the ${savedInput.storyDayAbj} things they had done that day with ${savedInput.friendName} and hoped that tomorrow would just just as ${savedInput.storyDayAbj}`
     storyDetails.appendChild(storyParagraph8)
     
     const saveStory = document.createElement("button")

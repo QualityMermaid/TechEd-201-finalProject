@@ -3,7 +3,6 @@ console.log("saved story script")
 
 let localStorageSavedStory = JSON.parse(localStorage.getItem("savedStory"))
 console.log(localStorageSavedStory + " Stored Story") 
-console.log(localStorageSavedStory.mainName + "HERE")
 
 
 function renderSavedStory(){

@@ -4,7 +4,6 @@ console.log("create js")
 
 const storyForm = document.getElementById("storyForm")
 console.log("here?")
-// const addNewStoryInputs = document.getElementById("")
 const currentStoryInputs = document.getElementById("currentStoryInputs")
 let savedInput = JSON.parse(localStorage.getItem("currentStoryInputs"))
 console.log("current saved Inputs " + savedInput)
@@ -19,12 +18,15 @@ console.log(storyLocation + " this is the location selected")
 
 let  allLocations = []
 
+let selectedImage
+console.log(selectedImage + " image is")
+
 const image1 = document.getElementById("firstImg")
 const image2 = document.getElementById("secondImg")
 
-const abjectiveHome = ["messy", "clean"]
-const abjectiveDay = ["fun", "exciting"]
-const randomDoorOrPhone = [" there was a knock at the door", "their phone rang"]
+// const abjectiveHome = ["messy", "clean"]
+// const abjectiveDay = ["fun", "exciting"]
+// const randomDoorOrPhone = [" there was a knock at the door", "their phone rang"]
 
 function getRandomLocation(){
     let x = Math.floor(Math.random() * allLocations.length)
@@ -67,18 +69,13 @@ function locationSelected(event){
         locationSelected = event.target
         console.log(locationSelected)
         localStorage.setItem("currentLocation", JSON.stringify(locationSelected.name))
-
+        selectedImage = locationSelected
         console.log("a location has been selected")
 
         if(document.getElementById("savedUlInput")){
             if(document.getElementById("savedLocationInput")){
                 removeSavedLocation()
             }
-            const ulStoryInputs = document.getElementById("savedUlInput")
-            const location = document.createElement("li");
-            location.setAttribute("id", "savedLocationInput")
-            location.textContent = "Location is " + locationSelected.name;
-            ulStoryInputs.appendChild(location)
         }
     }
 
@@ -97,213 +94,75 @@ function Story(mainType, mainName,friendType, friendName, home, game, dinner, de
     this.dessert = dessert;
     this.bedtime = bedtime;
 
-    this.storyDayAbj = abjectiveDay[getAbjectiveDay()]
-    this.storyHouseAbj = abjectiveHome[getAbjectiveHome()]
-    this.storyPhoneOrDoor = randomDoorOrPhone[getPhoneOrDoor()]
-    console.log("Hope this works. " + this.storyDayAbj)
+    this.abjectiveHome = ["messy", "clean"]
+    this.abjectiveDay = ["fun", "exciting"]
+    this.randomDoorOrPhone = [" there was a knock at the door", "their phone rang"]
 
-    this.render = function(){  
 
-        const h3StoryInputs = document.createElement("h3");
-        h3StoryInputs.textContent = "Current story ideas"
-        h3StoryInputs.setAttribute("id", "savedInput")
-        currentStoryInputs.appendChild(h3StoryInputs)
-
-        const ulStoryInputs = document.createElement("ul");
-        ulStoryInputs.setAttribute("id", "savedUlInput")
-        currentStoryInputs.appendChild(ulStoryInputs)
-
-        const currentMainType = document.createElement("li");
-        currentMainType.setAttribute("id", "savedInput")
-        currentMainType.textContent = "Main Character is a " + this.mainType;
-        ulStoryInputs.appendChild(currentMainType)
-
-        const currentMainName = document.createElement("li");
-        currentMainName.setAttribute("id", "savedInput")
-        currentMainName.textContent = "Main Character's name is " + this.mainName;
-        ulStoryInputs.appendChild(currentMainName)
-
-        const friendType = document.createElement("li");
-        friendType.setAttribute("id", "savedInput")
-        friendType.textContent = "Friend is a " + this.friendType;
-        ulStoryInputs.appendChild(friendType)
-
-        const friendName = document.createElement("li");
-        friendName.setAttribute("id", "savedInput")
-        friendName.textContent = "Friend's name is " + this.friendName;
-        ulStoryInputs.appendChild(friendName)
-
-        const home = document.createElement("li");
-        home.setAttribute("id", "savedInput")
-        home.textContent = "Main Character lives in a  " + this.home;
-        ulStoryInputs.appendChild(home)
-
-        const game = document.createElement("li");
-        game.setAttribute("id", "savedInput")
-        game.textContent = "Games they play are " + this.game;
-        ulStoryInputs.appendChild(game)
-
-        const dinner = document.createElement("li");
-        dinner.setAttribute("id", "savedInput")
-        dinner.textContent = "Dinner can be " + this.dinner;
-        ulStoryInputs.appendChild(dinner)
-
-        const dessert = document.createElement("li");
-        dessert.setAttribute("id", "savedInput")
-        dessert.textContent = "Dessert can be " + this.dessert;
-        ulStoryInputs.appendChild(dessert)
-
-        const bedtime = document.createElement("li");
-        bedtime.setAttribute("id", "savedInput")
-        bedtime.textContent = "Bedtime is " + this.bedtime + "pm";
-        ulStoryInputs.appendChild(bedtime)
-
-        savedLocation = JSON.parse(localStorage.getItem("currentLocation"))
-        const location = document.createElement("li");
-        location.setAttribute("id", "savedLocationInput")
-        location.textContent = "Location is " + savedLocation;
-        ulStoryInputs.appendChild(location)
-
-    }
+    // this.storyDayAbj = abjectiveDay[getAbjectiveDay()]
+    // this.storyHouseAbj = abjectiveHome[getAbjectiveHome()]
+    // this.storyPhoneOrDoor = randomDoorOrPhone[getPhoneOrDoor()]
+    // console.log("Hope this works. " + this.storyDayAbj)
 }
 
-function getAbjectiveHome(){
-    let x = Math.floor(Math.random() * abjectiveHome.length)
-    console.log(x + " home")
-    return x
-}
+// function getAbjectiveHome(){
+//     let x = Math.floor(Math.random() * abjectiveHome.length)
+//     console.log(x + " home")
+//     return x
+// }
 
-function getPhoneOrDoor(){
-    let x = Math.floor(Math.random() * randomDoorOrPhone.length)
-    console.log(x + " phone or door")
-    return x
-}
+// function getPhoneOrDoor(){
+//     let x = Math.floor(Math.random() * randomDoorOrPhone.length)
+//     console.log(x + " phone or door")
+//     return x
+// }
 
-function getAbjectiveDay(){
-    let x = Math.floor(Math.random() * abjectiveDay.length)
-    console.log(x + " day")
-    return x
-}
+// function getAbjectiveDay(){
+//     let x = Math.floor(Math.random() * abjectiveDay.length)
+//     console.log(x + " day")
+//     return x
+// }
 
 storyForm.addEventListener("submit", function(event){
     console.log("New Story Inputs");
     event.preventDefault()
-    const mainType = event.target.mainType.value;
-    const mainName = event.target.mainName.value;
-    const friendType = event.target.friendType.value;
-    const friendName = event.target.friendName.value;
-    const home = event.target.home.value;
-    const game = event.target.game.value;
-    const dinner = event.target.dinner.value;
-    const dessert = event.target.dessert.value;
-    const bedtime = event.target.bedtime.value;
 
-    const newStory = new Story(mainType, mainName, friendType, friendName, home, game, dinner, dessert, bedtime)
-    console.log("Here" + newStory)
-    removeSavedInput()
+    if(selectedImage){
+        const mainType = event.target.mainType.value;
+        const mainName = event.target.mainName.value;
+        const friendType = event.target.friendType.value;
+        const friendName = event.target.friendName.value;
+        const home = event.target.home.value;
+        const game = event.target.game.value;
+        const dinner = event.target.dinner.value;
+        const dessert = event.target.dessert.value;
+        const bedtime = event.target.bedtime.value;
 
-    newStory.render()
+        const newStory = new Story(mainType, mainName, friendType, friendName, home, game, dinner, dessert, bedtime)
+        console.log("Here" + newStory)
 
-    storyInput = newStory
+        storyInput = newStory
 
-    localStorage.setItem("currentStoryInputs", JSON.stringify(storyInput))
+        localStorage.setItem("currentStoryInputs", JSON.stringify(storyInput))
 
+        console.log("Your inputs are saved. Go to Stories page to see your creations")
+        const alertMessage = document.getElementById("alertSave")
+        alertMessage.classList.add("alert")
+        alertMessage.classList.remove("saveAlert")
+        storyForm.reset()
+
+    } else {
+        alert("Please select an image")
+    }
 })
 
 function pageLoad(){
     const beach = new Location("beach", "images/locations/beach.jpeg")
     const forest = new Location("forest", "images/locations/forest.jpeg")
     const park = new Location("park", "images/locations/park.jpeg")
-
-    if (savedInput){
-        console.log("There is saved data")
-        savedInput.render = function(){
-            
-            const h3StoryInputs = document.createElement("h3");
-            h3StoryInputs.textContent = "Current story ideas"
-            h3StoryInputs.setAttribute("id", "savedInput")
-            currentStoryInputs.appendChild(h3StoryInputs)
-
-            const ulStoryInputs = document.createElement("ul");
-            ulStoryInputs.setAttribute("id", "savedUlInput")
-            currentStoryInputs.appendChild(ulStoryInputs)
-
-            const currentMainType = document.createElement("li");
-            currentMainType.setAttribute("id", "savedInput")
-            currentMainType.textContent = "Main Character is a " + this.mainType;
-            ulStoryInputs.appendChild(currentMainType)
-
-            const currentMainName = document.createElement("li");
-            currentMainName.setAttribute("id", "savedInput")
-            currentMainName.textContent = "Main Character's name is " + this.mainName;
-            ulStoryInputs.appendChild(currentMainName)
-
-            const friendType = document.createElement("li");
-            friendType.setAttribute("id", "savedInput")
-            friendType.textContent = "Friend is a " + this.friendType;
-            ulStoryInputs.appendChild(friendType)
-
-            const friendName = document.createElement("li");
-            friendName.setAttribute("id", "savedInput")
-            friendName.textContent = "Friend's name is " + this.friendName;
-            ulStoryInputs.appendChild(friendName)
-
-            const home = document.createElement("li");
-            home.setAttribute("id", "savedInput")
-            home.textContent = "Main Character lives in a  " + this.home;
-            ulStoryInputs.appendChild(home)
-
-            const game = document.createElement("li");
-            game.setAttribute("id", "savedInput")
-            game.textContent = "Games they play are " + this.game;
-            ulStoryInputs.appendChild(game)
-
-            const dinner = document.createElement("li");
-            dinner.setAttribute("id", "savedInput")
-            dinner.textContent = "Dinner can be " + this.dinner;
-            ulStoryInputs.appendChild(dinner)
-
-            const dessert = document.createElement("li");
-            dessert.setAttribute("id", "savedInput")
-            dessert.textContent = "Dessert can be " + this.dessert;
-            ulStoryInputs.appendChild(dessert)
-
-            const bedtime = document.createElement("li");
-            bedtime.setAttribute("id", "savedInput")
-            bedtime.textContent = "Bedtime is " + this.bedtime + "pm";
-            ulStoryInputs.appendChild(bedtime)
-        
-            if(savedLocation){
-                console.log("there is a saved location")
-                const location = document.createElement("li");
-                location.setAttribute("id", "savedLocationInput")
-                location.textContent = "Location is " + savedLocation;
-                ulStoryInputs.appendChild(location)
-    
-            }
-        }
-        savedInput.render()
-    } 
-
 }
 
 pageLoad()
 renderImages()
-
-function removeSavedInput(){
-    console.log("remove running")
-    while(document.getElementById("savedInput")){
-        document.getElementById("savedInput").remove()
-        console.log("removing savedInput")
-    }
-}
-
-function removeSavedLocation(){
-    if(document.getElementById("savedLocationInput")){
-        document.getElementById("savedLocationInput").remove()
-        console.log("removing savedLocationInput")
-    }
-}
-
 
 

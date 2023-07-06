@@ -82,3 +82,46 @@ footer ul{
     text-align: center;
 
 }
+
+.button{
+    background-color: #090ea2;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -200;
+    margin-top: -100;
+    padding: 20px;
+    background-color: #01bf1a;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 20px;
+    /* cursor: pointer; */
+    transition: 0.3s;
+    border: 3px solid #01bf1a;
+}
+
+.alert:hover{
+    border: 3px solid rgb(1, 58, 1);
+}
+
+.saveAlert {
+    margin-left: 15px;
+    color: transparent;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}

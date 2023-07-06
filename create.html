@@ -54,18 +54,31 @@
             <label>Dinner:<input type="text" id="dinner" name="Dinner" placeholder="pizza, pasta" required></label>
             <label>Dessert:<input type="text" id="dessert" name="Dessert" placeholder="jelly, cake, ice cream" required></label>
             <label>Bedtime:<input type="number" id="bedtime" name="Bedtime" placeholder="8 for 8pm" min="0" max="11" required></label>
-            <button class="submit-button" type="submit">Create</button>
-        </form>
+            <!-- <button class="button" id="submit-button" type="submit">Create</button> -->
 
+        <section id="imageSelectionSection">
+            <h2>Select from these two options where you would like the story to take place.</h2>
+            <div id="imageSelectionImages">
+                <img id="firstImg" />
+                <img id="secondImg"/>
+            </div>
+        </section>
+        <button class="button" id="submit-button" type="submit">Save Input</button>
+
+        </form>
+<!-- 
         <section id="imageSelectionSection">
             <h2>Select from these two options where you would like the story to take place.</h2>
             <img id="firstImg" />
             <img id="secondImg"/>
-        </section>
+        </section> -->
 
-        <section id="currentStoryInputs">
-        </section>
-
+        <!-- <section id="currentStoryInputs">
+        </section> -->
+        <div>
+            <span id="alertSave" class="saveAlert" onclick="this.parentElement.style.display='none';">Saved Inputs Successful 
+            </span>
+        </div>
     </main>
 
     <footer>
