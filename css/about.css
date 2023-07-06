@@ -1,4 +1,15 @@
+#jessica{
+    text-align: center;
+}
+
+h3{
+    font-size: 2rem;
+}
+
 img{
     width: 300px;
     height: auto;
+    margin: auto;
+    display: flex;
 }
+

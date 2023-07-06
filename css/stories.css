@@ -8,12 +8,43 @@
     margin: auto;
     display: flex;
     justify-content: space-around;
+    padding: 1rem;
 }
 
 #newStory{
-    background-color: blueviolet;
+    background-color: rgba(41, 0, 146, 0.415);
+    margin: auto;
+    padding: 5px;
 }
 
 #storySummary{
     font-size: 2rem;
+
+}
+
+#storyParagraph{
+    text-align: center;
+    font-size: 2rem;
+}
+
+#storyPrompt{
+    text-align: center;
+    color: rgb(209, 0, 0);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+img{
+    margin: auto;
+    display: flex;
+    padding: 2rem;
+}
+
+#saveStoryButton{
+    display: flex;
+    text-align: center;
+    margin: auto;
+    background-color: green;
+    color: white;
+    font-size: 1rem;
 }

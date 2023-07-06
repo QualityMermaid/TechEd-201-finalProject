@@ -78,7 +78,6 @@ function locationSelected(event){
             }
         }
     }
-
 }
 
 imageSelectionSection.addEventListener("click", locationSelected)
@@ -97,31 +96,8 @@ function Story(mainType, mainName,friendType, friendName, home, game, dinner, de
     this.abjectiveHome = ["messy", "clean"]
     this.abjectiveDay = ["fun", "exciting"]
     this.randomDoorOrPhone = [" there was a knock at the door", "their phone rang"]
-
-
-    // this.storyDayAbj = abjectiveDay[getAbjectiveDay()]
-    // this.storyHouseAbj = abjectiveHome[getAbjectiveHome()]
-    // this.storyPhoneOrDoor = randomDoorOrPhone[getPhoneOrDoor()]
-    // console.log("Hope this works. " + this.storyDayAbj)
 }
 
-// function getAbjectiveHome(){
-//     let x = Math.floor(Math.random() * abjectiveHome.length)
-//     console.log(x + " home")
-//     return x
-// }
-
-// function getPhoneOrDoor(){
-//     let x = Math.floor(Math.random() * randomDoorOrPhone.length)
-//     console.log(x + " phone or door")
-//     return x
-// }
-
-// function getAbjectiveDay(){
-//     let x = Math.floor(Math.random() * abjectiveDay.length)
-//     console.log(x + " day")
-//     return x
-// }
 
 storyForm.addEventListener("submit", function(event){
     console.log("New Story Inputs");

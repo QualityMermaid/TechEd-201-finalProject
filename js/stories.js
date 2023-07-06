@@ -259,6 +259,9 @@ function renderNewStory(){
 function saveStory(){
     const storySection = [createdMainType, createdMainName, createdFriendType, createdFriendName, createdHome, createdGame, createdDinner, createdDessert, createdBedtime, createdAbjectiveHome, createdAbjectiveDay, createdPhoneOrDoor]
     localStorage.setItem("savedStory", JSON.stringify(storySection))
+
+    document.getElementById("savedStoryButton").disabled = false
+    document.getElementById("savedStoryButton").classList.remove("disable")
 }
 
 pageLoad()
