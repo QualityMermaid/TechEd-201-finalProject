@@ -43,6 +43,10 @@ function locationSelected(event){
         locationSelected = event.target
         localStorage.setItem("currentLocation", JSON.stringify(locationSelected.name))
         selectedImage = locationSelected
+        image1.classList.remove("imgSelected")
+        image2.classList.remove("imgSelected")
+        document.getElementById(locationSelected.id).classList.add("imgSelected")
+        
 
         if(document.getElementById("savedUlInput")){
             if(document.getElementById("savedLocationInput")){

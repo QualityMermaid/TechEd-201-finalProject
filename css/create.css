@@ -35,3 +35,8 @@ img{
 img:hover{
     border: 1px solid blue;
 }
+
+.imgSelected{
+    border: solid rgb(0, 255, 94);
+
+}
