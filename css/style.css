@@ -66,16 +66,21 @@ h1{
     color: #2E8A99;
     text-align: center;
     font-size: 2rem;
+    font-family: 'Handlee', cursive;
 }
 
 h2{
     padding-top: 1rem;
     padding-bottom: 1rem;
     font-size: 1.5rem;
+    font-family: 'Handlee', cursive;
+
 }
 
 h3{
-    font-size: 1rem;
+    font-size: 2rem;
+    padding: 1rem;
+    font-family: 'Handlee', cursive;
 }
 
 #heroImage{
