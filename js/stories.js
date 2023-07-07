@@ -241,8 +241,8 @@ function renderNewStory(){
     saveStory.textContent = "Save Story"
     storyDetails.appendChild(saveStory)
 
-    document.getElementById("createStoryButton").disabled = true
-    document.getElementById("createStoryButton").classList.add("disable")
+    // document.getElementById("createStoryButton").disabled = true
+    // document.getElementById("createStoryButton").classList.add("disable")
 }
 
 function saveStory(){
